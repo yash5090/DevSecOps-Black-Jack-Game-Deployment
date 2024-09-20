@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blackjack-deployment
+spec:
+  replicas: 6 # You can adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: blackjack
+  template:
+    metadata:
+      labels:
+        app: blackjack
+    spec:
+      containers:
+        - name: blackjack
+          image: yash5090/blackjack:latest # Replace with the actual image tag
+          ports:
+            - containerPort: 5000 # Replace with the port your Tetris game listens on
